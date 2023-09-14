@@ -29,11 +29,9 @@ class _LoginState extends State<Login> {
   );
 
   void login(context) async {
-    print('llega a la funcion login');
     bool authorized = await loginService.execute(username, password);
-    print('authorized: $authorized');
     if (!authorized) return;
-    // Navigator.pushNamed(context, "home");
+    Navigator.pushNamed(context, "home");
   }
 
   @override

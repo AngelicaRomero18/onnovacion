@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:onnovacion/Users/domain/user.dart';
 import 'package:onnovacion/Users/domain/user.repository.dart';
 
@@ -12,9 +13,10 @@ class LoginService {
     List<User> users = await repository.get();
     print('username: $username');
     print('password: $password');
-    User? userFound = users.firstWhere(
-      (user) => user.email == username && user.password == password,
-    );
+    print('users: $users');
+    User? userFound = users.firstWhereOrNull(
+        (user) => user.email == username && user.password == password);
+    print(userFound);
     // ignore: unnecessary_null_comparison
     if (userFound == null) {
       return false;
